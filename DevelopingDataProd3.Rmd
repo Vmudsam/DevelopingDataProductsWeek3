@@ -1,0 +1,29 @@
+---
+title: "Developing Data Products "
+author: "Veronica Mudsam"
+date: "8/26/2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, cache = TRUE, echo = FALSE, 
+                      message = FALSE, warning = FALSE)
+```
+
+## Overview
+
+This is an R Markdown presentation that features a plot created with Plotly. My webpage is hosted on RPubs, and my rmd. file you can find at https://github.com/Vmudsam/DevelopingDataProductsWeek3.git. 
+
+
+## Slide with Plot
+This is a plot created with plotly showing Miles per Gallon depending on Weight with the cylinders marked with different colors
+
+```{r pressure}
+library(plotly)
+plot_ly(data = mtcars, x = ~wt, y = ~mpg, 
+        color = ~as.factor(cyl), size = ~hp,
+        text = ~paste("Weight: ", wt, '<br>MPG:', mpg),
+        type = "scatter", mode = "markers") %>%
+  layout(title = "Miles per Gallon for Cars depending on Weight and Cylinder Size", xaxis=list(title="Weight"), yaxis=list(title="Miles per Gallon"))
+```
+
